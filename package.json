@@ -7,8 +7,8 @@
   "author": "Frankz Alarcon <leninalarcon7@gmail.com>",
   "license": "ISC",
   "scripts": {
-    "start": "node backend/index.js",
-    "postinstall": "npm run build && npm run docs",
+    "start": "npm run docs && node backend/index.js",
+    "postinstall": "npm run build",
     "build": "webpack --config webpack.config.js",
     "docs": "jsdoc -c jsdoc.json"
   },

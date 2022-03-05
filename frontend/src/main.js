@@ -1,18 +1,6 @@
 import DibujarGrafo from '../library/DibujarGrafo.js';
 import Grafo from '../library/Grafo.js';
 import '../styles/style.css';
-/* 
-  Todo: Consultar como subir backend y frontend a un server, creo que funcionaria en "Heroku".
-  -Todo: Mostrar la complejidad (terminado)
-  -TOdo: Mejorar la interfaz y añadir controles para cuando se hace RMC o PRIM, puede ser mostrar un mensaje Terminado
-  -Todo: generar aristas random (2 o 3 por nodo) excepto el primero. Terminado
-  -Todo: crear las peticiciones desde el frontend. Terminado
-  -Todo: Crear el algoritmo para arbol de expasion minimo en la misma clase grafo. TERMINADO
-  -Todo: Implementar el arbol de expansio minimo dinamico. TERMINADO (probar para ver si hay bugs)
-  -Todo: Crear dos canvas, uno es el grafo y el otro para mostrar el resultado. TERMINADO
-  -Todo: Realizar en el backend una peticion para obtener los datos de usuario ingresando el username.  TERMINADO
-  -Todo: Arreglar los estilos para mostrar los 2 canvas y agregar botones para arbol de expansion minimo.TERMINADO
- */
 
 
 //Variables globales
