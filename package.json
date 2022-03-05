@@ -1,0 +1,40 @@
+{
+  "name": "proyecto-final-eda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Frankz Alarcon <leninalarcon7@gmail.com>",
+  "license": "ISC",
+  "scripts": {
+    "start": "node backend/index.js",
+    "postinstall": "npm run build && npm run docs",
+    "build": "webpack --config webpack.config.js",
+    "docs": "jsdoc -c jsdoc.json"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/runtime": "^7.17.2",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.7.0",
+    "dotenv": "^16.0.0",
+    "dotenv-webpack": "^7.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "tui-jsdoc-template": "^1.2.2",
+    "vite": "^2.8.0",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cytoscape": "^3.21.0",
+    "cytoscape-edgehandles": "^4.0.1",
+    "express": "^4.17.2",
+    "jsdoc": "^3.6.10",
+    "node-fetch": "^2.6.1",
+    "twit": "^2.2.11"
+  }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./extra/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyecto EDA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+  </head>
+  <body>
+    <header class="header-container">
+      <h1>Algoritmos para Grafos</h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="./docs/index.html">Documentacion</a></li>
+          <li><a href="https://github.com/FrankzAlarcon/graphs" target="_blank">Github</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main-content">
+      <section class="main-section">
+        <div class="datos-fetch">
+          <label for="username">
+            <span class="bold ingresar-username">Ingrese el username: </span>
+            <span class="bold arroba">@</span>
+            <input id="username" type="text" placeholder="Ingresa un @ de twitter"/>
+            <button class="obtener-data">Crear Grafo</button>
+          </label>
+          <label for="limitNodes">
+            <span class="bold ingresar-limitNodes">Ingrese el límite de Nodos (Min:10 - Max:100): </span>
+            <input id="limitNodes" min='10' max='100' type="number" placeholder="Límite"/>
+          </label>
+          <p class="limit-error">Debe ser un número entre 10 y 100</p>
+          <p class="fetch-error">El usuario ingresado no existe</p>
+        </div>
+        <div class="ruta-mas-corta-container">
+          <h3>Ruta más corta</h3>
+          <p>Para utlizar el algoritmo de ruta más corta debes seleccionar 2 nodos</p>
+          <p><span class="bold">Complejidad: </span><span class="rmc-complejidad cambio-complejidad">Vertices * Aristas</span></p>
+          <button class="ruta-mas-corta button">Ruta Mas Corta</button>
+          <p class="rmc-error">Debes seleccionar 2 nodos</p>
+        </div>
+        <div class="arbol-expansion-minimo-container">
+          <h3>Árbol de Expansión Mínimo</h3>
+          <p>Para generar el árbol de expansión mínimo debes seleccionar 1 nodo</p>
+          <p><span class="bold">Complejidad: </span><span class="prim-complejidad cambio-complejidad">Aristas * log(Vertices)</span></p>
+          <button class="arbol-minimo-prim button">Arbol Exp.Min</button>
+          <p class="prim-error">Debes seleccionar 1 nodo</p>
+        </div>
+      </section>
+      <section id="app">
+        <h2 class="grafo-inicial-text">Grafo Inicial</h2>
+        <div id="graph"></div>
+        <h2 class="grafo-resultados-text">Resultados</h2>
+        <div id="result"></div>
+      </section>
+    </main>
+    <footer>
+      <span class="bold">Creado por: </span>Frankz Alarcón, Christian Pazmiño, Jhonattan Amagua.
+    </footer>
+    <!-- <script type="module" src="/index.js"></script> -->
+    <!-- <script type="module" src="./library/graph.js"></script> -->
+    <script type="module" src="./src/main.js"></script>
+    <!-- <script src="./extra/twitter.js"></script> -->
+  </body>
+</html>
