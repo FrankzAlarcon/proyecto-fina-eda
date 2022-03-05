@@ -7,10 +7,11 @@
   "author": "Frankz Alarcon <leninalarcon7@gmail.com>",
   "license": "ISC",
   "scripts": {
-    "start": "npm run docs && node backend/index.js",
+    "start": "node backend/index.js",
     "postinstall": "npm run build",
     "build": "webpack --config webpack.config.js",
-    "docs": "jsdoc -c jsdoc.json"
+    "docs": "jsdoc -c jsdoc.json",
+    "deploy": "gh-pages -d docs"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
@@ -19,6 +20,7 @@
     "@babel/runtime": "^7.17.2",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.7.0",
+    "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.0",
     "tui-jsdoc-template": "^1.2.2",
