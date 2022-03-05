@@ -191,35 +191,39 @@ function generarNumeroRandom(x,y) {
 function llenarAristasAuto() {
   //genera las aristas no dirigidas
   try {
-
+    let numerosRandom = [];
+    //Generar un array de minimo 6 elementos maximo 20 elementos
+    let contador;
+    let limiteNodos;
+    if(document.getElementById('limitNodes').value === '') {
+      limiteNodos = 10;
+    } else {
+      limiteNodos = parseInt(document.getElementById('limitNodes').value);
+    }
+    // const limiteNodos = 10 /
+    //generar Conexxiones Random
+    for(contador = 1; contador <= generarNumeroRandom(limiteNodos * 5,limiteNodos * 6); contador++){
+      //Generar array con numeros randoms entre el 0 y Límite Máximo
+      numerosRandom.push(generarNumeroRandom(0 , limiteNodos+1)); //Al Final
+    }
+    if(numerosRandom.length%2 != 0){
+        //Si el numeros de elementos es impar, eliminamos el último 
+        numerosRandom.pop();
+    } 
+    //Se agrega el owner  a los seguidores
+    seguidoresOwner.push(owner);
+    for( contador = 0; contador <= numerosRandom.length-1; contador = contador + 2){
+      if(grafo.agregarAristaNoDirigida(seguidoresOwner[numerosRandom[contador]], seguidoresOwner[numerosRandom[contador+1]], seguidoresOwner[numerosRandom[contador+1]].public_metrics.followers_count)){
+        //Si no existe el vertice y se pudo ingresar correctamente
+        aristas++;
+        dibujoGrafo.dibujarArista(seguidoresOwner[numerosRandom[contador]], seguidoresOwner[numerosRandom[contador+1]]);
+      }
+    }
+    //Quito el último
+    seguidoresOwner.pop();
   } catch (error) {
     console.log(error)
   }
-  let numerosRandom = [];
-  //Generar un array de minimo 6 elementos maximo 20 elementos
-  let contador;
-  const limiteNodos = parseInt(document.getElementById('limitNodes').value) 
-  // const limiteNodos = 10 /
-  //generar Conexxiones Random
-  for(contador = 1; contador <= generarNumeroRandom(limiteNodos * 5,limiteNodos * 6); contador++){
-    //Generar array con numeros randoms entre el 0 y Límite Máximo
-    numerosRandom.push(generarNumeroRandom(0 , limiteNodos+1)); //Al Final
-  }
-  if(numerosRandom.length%2 != 0){
-      //Si el numeros de elementos es impar, eliminamos el último 
-      numerosRandom.pop();
-  } 
-  //Se agrega el owner  a los seguidores
-  seguidoresOwner.push(owner);
-  for( contador = 0; contador <= numerosRandom.length-1; contador = contador + 2){
-    if(grafo.agregarAristaNoDirigida(seguidoresOwner[numerosRandom[contador]], seguidoresOwner[numerosRandom[contador+1]], seguidoresOwner[numerosRandom[contador+1]].public_metrics.followers_count)){
-      //Si no existe el vertice y se pudo ingresar correctamente
-      aristas++;
-      dibujoGrafo.dibujarArista(seguidoresOwner[numerosRandom[contador]], seguidoresOwner[numerosRandom[contador+1]]);
-    }
-  }
-  //Quito el último
-  seguidoresOwner.pop();
 }
 function llenarAristas(keysRutaCorta) {
   const dibujoGrafoRMC =  new DibujarGrafo('result');
