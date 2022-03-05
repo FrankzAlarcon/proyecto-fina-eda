@@ -1,10 +1,10 @@
 const Twit = require('twit');
 
 let twitter  = new Twit({
-  consumer_key: process.env.CONSUMER_KEY,
-  consumer_secret: process.env.CONSUMER_SECRET,
-  access_token: process.env.ACCESS_TOKEN,
-  access_token_secret: process.env.ACCESS_TOKEN_SECRET
+  consumer_key: "eukrhMeOtHiGlpxzkzMaOUz9b",
+  consumer_secret: "W18F3RDZAb4VLGa7JXIhIFNQfz3HN4LR9IgD80jLniYxj6BYqO",
+  access_token: "4865683485-OxjXay7efuS8rtImSZLSv4ocZqRUnCN4QEYq8bl",
+  access_token_secret: "4RCc6jzLE9KksMJRS7eHwtdZY6lfwq0doGYlC2VMlqnXk"
 });
 
 /**Parametros: 1,2,3,4 */

@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const dotenv = require('dotenv').config();
 const {getData, getOwnerData} = require('./src/getTwitterData');
 const cors = require('cors');
 const app = express();

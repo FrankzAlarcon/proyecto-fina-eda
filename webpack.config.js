@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const Dotenv = require('dotenv-webpack');
 
 /**@type{import('webpack').Configuration} */
 const webpackConfiguration = {
@@ -44,8 +43,7 @@ const webpackConfiguration = {
     }),
     new MiniCssExtractPlugin({
       filename: 'styles/style.css'
-    }),
-    new Dotenv()
+    })
   ]
 }
 module.exports = webpackConfiguration;
