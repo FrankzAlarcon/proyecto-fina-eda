@@ -169,10 +169,10 @@ function pintarAzul() {
 
 async function getSeguidos(username, limit = 10) {
   //hace fetch para obtener los datos
-  const owner = await fetch(`https://grafos-backend-epn.herokuapp.com/get-owner/${username}`)
+  const owner = await fetch(`/get-owner/${username}`)
   .then(response => response.json())
   .then(responseJson => responseJson.body.data);
-  const seguidores = await fetch(`https://grafos-backend-epn.herokuapp.com/get/${username}/${limit}`)
+  const seguidores = await fetch(`/get/${username}/${limit}`)
   .then(response => response.json())
   .then(responseJson => responseJson.body.data);
   if(!seguidores || !owner){
