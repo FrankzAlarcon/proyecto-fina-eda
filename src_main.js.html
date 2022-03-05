@@ -43,7 +43,7 @@
             </li>
         </ol>
     
-    <div class="lnb-examples hidden"><h3>Examples</h3><ul><li><a href="tutorial-primer-tutorial.html">primer-tutorial</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="primer-tutorial_sub"></div></li><li><a href="tutorial-segundo-tutorial.html">segundo-tutorial</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="segundo-tutorial_sub"></div></li></ul></div><div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="DibujarGrafo.html">DibujarGrafo</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="DibujarGrafo_sub"></div></li><li><a href="Grafo.html">Grafo</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Grafo_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="Grafo.html#getNodos">getNodos</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="Grafo.html#agregarAristaDirigida">agregarAristaDirigida</a></li><li><a href="Grafo.html#agregarAristaNoDirigida">agregarAristaNoDirigida</a></li><li><a href="Grafo.html#agregarNodo">agregarNodo</a></li><li><a href="Grafo.html#getNodoPorKey">getNodoPorKey</a></li><li><a href="Grafo.html#matrizAdyacencia">matrizAdyacencia</a></li><li><a href="Grafo.html#prim">prim</a></li></ul></div></li><li><a href="Nodo.html">Nodo</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Nodo_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="Nodo.html#agregarVecino">agregarVecino</a></li></ul></div></li></ul></div>
+    <div class="lnb-examples hidden"><h3>Examples</h3><ul><li><a href="tutorial-Interfaz.html">Interfaz</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Interfaz_sub"></div></li></ul></div><div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="DibujarGrafo.html">DibujarGrafo</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="DibujarGrafo_sub"></div></li><li><a href="Grafo.html">Grafo</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Grafo_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="Grafo.html#getNodos">getNodos</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="Grafo.html#agregarAristaDirigida">agregarAristaDirigida</a></li><li><a href="Grafo.html#agregarAristaNoDirigida">agregarAristaNoDirigida</a></li><li><a href="Grafo.html#agregarNodo">agregarNodo</a></li><li><a href="Grafo.html#getNodoPorKey">getNodoPorKey</a></li><li><a href="Grafo.html#matrizAdyacencia">matrizAdyacencia</a></li><li><a href="Grafo.html#prim">prim</a></li></ul></div></li><li><a href="Nodo.html">Nodo</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Nodo_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="Nodo.html#agregarVecino">agregarVecino</a></li></ul></div></li></ul></div>
 </nav>
 <div id="resizer"></div>
 
@@ -248,35 +248,39 @@ function generarNumeroRandom(x,y) {
 function llenarAristasAuto() {
   //genera las aristas no dirigidas
   try {
-
+    let numerosRandom = [];
+    //Generar un array de minimo 6 elementos maximo 20 elementos
+    let contador;
+    let limiteNodos;
+    if(document.getElementById('limitNodes').value === '') {
+      limiteNodos = 10;
+    } else {
+      limiteNodos = parseInt(document.getElementById('limitNodes').value);
+    }
+    // const limiteNodos = 10 /
+    //generar Conexxiones Random
+    for(contador = 1; contador &lt;= generarNumeroRandom(limiteNodos * 5,limiteNodos * 6); contador++){
+      //Generar array con numeros randoms entre el 0 y Límite Máximo
+      numerosRandom.push(generarNumeroRandom(0 , limiteNodos+1)); //Al Final
+    }
+    if(numerosRandom.length%2 != 0){
+        //Si el numeros de elementos es impar, eliminamos el último 
+        numerosRandom.pop();
+    } 
+    //Se agrega el owner  a los seguidores
+    seguidoresOwner.push(owner);
+    for( contador = 0; contador &lt;= numerosRandom.length-1; contador = contador + 2){
+      if(grafo.agregarAristaNoDirigida(seguidoresOwner[numerosRandom[contador]], seguidoresOwner[numerosRandom[contador+1]], seguidoresOwner[numerosRandom[contador+1]].public_metrics.followers_count)){
+        //Si no existe el vertice y se pudo ingresar correctamente
+        aristas++;
+        dibujoGrafo.dibujarArista(seguidoresOwner[numerosRandom[contador]], seguidoresOwner[numerosRandom[contador+1]]);
+      }
+    }
+    //Quito el último
+    seguidoresOwner.pop();
   } catch (error) {
     console.log(error)
   }
-  let numerosRandom = [];
-  //Generar un array de minimo 6 elementos maximo 20 elementos
-  let contador;
-  const limiteNodos = parseInt(document.getElementById('limitNodes').value) 
-  // const limiteNodos = 10 /
-  //generar Conexxiones Random
-  for(contador = 1; contador &lt;= generarNumeroRandom(limiteNodos * 5,limiteNodos * 6); contador++){
-    //Generar array con numeros randoms entre el 0 y Límite Máximo
-    numerosRandom.push(generarNumeroRandom(0 , limiteNodos+1)); //Al Final
-  }
-  if(numerosRandom.length%2 != 0){
-      //Si el numeros de elementos es impar, eliminamos el último 
-      numerosRandom.pop();
-  } 
-  //Se agrega el owner  a los seguidores
-  seguidoresOwner.push(owner);
-  for( contador = 0; contador &lt;= numerosRandom.length-1; contador = contador + 2){
-    if(grafo.agregarAristaNoDirigida(seguidoresOwner[numerosRandom[contador]], seguidoresOwner[numerosRandom[contador+1]], seguidoresOwner[numerosRandom[contador+1]].public_metrics.followers_count)){
-      //Si no existe el vertice y se pudo ingresar correctamente
-      aristas++;
-      dibujoGrafo.dibujarArista(seguidoresOwner[numerosRandom[contador]], seguidoresOwner[numerosRandom[contador+1]]);
-    }
-  }
-  //Quito el último
-  seguidoresOwner.pop();
 }
 function llenarAristas(keysRutaCorta) {
   const dibujoGrafoRMC =  new DibujarGrafo('result');
