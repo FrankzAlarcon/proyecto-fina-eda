@@ -53,7 +53,7 @@ class DibujarGrafo {
   }
   dibujarNodo(nodo) {
   /***Paremetros */
-  if(this.x >= 650){
+  if(this.x >= 850){
     this.x = 20
     this.y =  this.y + 150 + Math.random()*10
   }
